@@ -1,0 +1,19 @@
+.Loading-bg-container {
+  background-color: #181818;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading-image-logo {
+  width: 130px;
+}
+.loading-text {
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 42px;
+  color: white;
+}

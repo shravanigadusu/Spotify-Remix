@@ -1,0 +1,29 @@
+.editor-li-element {
+  list-style-type: none;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-editor {
+  border-radius: 10px;
+  width: 115px;
+  height: 115px;
+}
+.editor-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #f8fafc;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+}
+.Editor-link {
+  text-decoration: none;
+}

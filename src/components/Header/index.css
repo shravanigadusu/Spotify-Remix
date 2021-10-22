@@ -1,0 +1,35 @@
+.header-bg-container {
+  background-color: #040306;
+  height: 24%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+.login-website-logo-desktop-image2 {
+  width: 52px;
+}
+.menu-icon {
+  color: #ffffff;
+  font-size: 23px;
+}
+.person-icon {
+  font-size: 23px;
+  color: #9b9b9b;
+}
+.menu-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.hii {
+  color: white;
+}
+.div-con {
+  border-color: gold;
+}
+.size-style {
+  font-size: 17px;
+}

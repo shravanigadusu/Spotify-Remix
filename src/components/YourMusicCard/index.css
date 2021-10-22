@@ -1,0 +1,65 @@
+.MusicCard-li-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 90px;
+}
+.song-image-styling {
+  width: 65px;
+  height: 65px;
+}
+.song-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0px;
+  height: 100%;
+  width: 54%;
+  padding-left: 7px;
+}
+.song-name {
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+  margin-top: 20px;
+}
+.song-artists {
+  font-weight: normal;
+  font-size: 12px;
+  color: #9b9b9b;
+  margin-top: 0px;
+  font-family: 'Roboto';
+  font-style: normal;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+}
+.song-time {
+  font-weight: normal;
+  font-size: 12px;
+  color: #9b9b9b;
+  margin-top: 0px;
+  font-family: 'Roboto';
+  font-style: normal;
+  align-self: flex-end;
+  margin-right: 0px;
+  width: 53%;
+}
+.time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: 18px;
+  width: 50px;
+}

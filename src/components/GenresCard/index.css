@@ -1,0 +1,9 @@
+.genres-li-element {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+.image-genre {
+  border-radius: 10px;
+  width: 115px;
+  height: 115px;
+}
