@@ -1,0 +1,28 @@
+.SH-bg-container {
+  background-color: #181818;
+  height: 10%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  width: 100%;
+  position: fixed;
+}
+.back-arrow {
+  color: white;
+  font-size: 23px;
+  margin-right: 8px;
+}
+.back-text {
+  color: white;
+  font-size: 19px;
+  font-family: 'Roboto';
+}
+.back-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+}
+.no-style {
+  text-decoration: none;
+}

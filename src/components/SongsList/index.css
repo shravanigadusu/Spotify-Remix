@@ -1,0 +1,41 @@
+.song-li-element {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  width: 100%;
+  padding: 10px;
+  height: 60px;
+}
+.song-name-styling {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+  margin-bottom: 0px;
+}
+.artists-name-styling {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 300;
+  color: #9b9b9b;
+  margin-top: 3px;
+}
+.name-and-artists-container {
+  display: flex;
+  flex-direction: column;
+}
+.song-times {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 300;
+  color: #9b9b9b;
+  margin-top: 3px;
+}

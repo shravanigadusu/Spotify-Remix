@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import LoadingView from '../LoadingView'
+import FailedView from '../FailedView'
 import Header from '../Header'
 
 import './index.css'
@@ -18,36 +19,42 @@ class Profile extends Component {
     this.getProfileDetails()
   }
 
+  onLogoutPage = () => {
+    const {history} = this.props
+    Cookies.remove('pa_token')
+    history.replace('/login')
+  }
+
   renderSuccessView = () => {
     const {personDetail} = this.state
-    const {displayName, url} = personDetail
+    const {displayName, imageUrl, followers} = personDetail
     return (
-      <div className="profile-bg-container">
+      <>
         <Header />
-        <h1 className="name">{displayName}</h1>
-        <img src={url} alt="profile-logo" />
-      </div>
+        <div className="profile-bg-container">
+          <img src={imageUrl} alt="profile-logo" className="profile-image" />
+          <h1 className="name">{displayName}</h1>
+          <div className="count-container">
+            <div className="Followers-container">
+              <p className="green-styling">{followers}</p>
+              <p className="text-style">FOLLOWERS</p>
+            </div>
+            <div className="Followers-container">
+              <p className="green-styling">0</p>
+              <p className="text-style">PLAYLISTS</p>
+            </div>
+          </div>
+          <button type="button" className="button" onClick={this.onLogoutPage}>
+            LOGOUT
+          </button>
+        </div>
+      </>
     )
   }
 
-  renderFailureView = () => <h1>Failed Attempt</h1>
+  renderFailureView = () => <FailedView />
 
   renderLoadingView = () => <LoadingView />
-
-  renderItem2 = externalUrls => ({
-    spotify: externalUrls.spotify,
-  })
-
-  renderItem3 = followers => ({
-    href: followers.href,
-    total: followers.total,
-  })
-
-  renderItem4 = images => ({
-    height: images.height,
-    url: images.url,
-    width: images.width,
-  })
 
   getProfileDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
@@ -67,18 +74,11 @@ class Profile extends Component {
       const updatedData = {
         country: data.country,
         displayName: data.display_name,
-        email: data.email,
-        external_urls: this.renderItem2(data.external_urls),
-        followers: this.renderItem3(data.followers),
-        href: data.href,
+        followers: data.followers.total,
         id: data.id,
-        // images: this.renderItem4(data.images),
-        images: data.images.map(eachItem => this.renderItem4(eachItem)),
-        type: data.type,
-        uri: data.uri,
+        imageUrl: data.images[0].url,
       }
       console.log(updatedData)
-      // this.renderSuccessView()
       this.setState({
         personDetail: updatedData,
         apiStatus: apiStatusConstants.success,

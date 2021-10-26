@@ -14,12 +14,12 @@ const apiStatusConstants = {
 
 class EachPlayListDetailView extends Component {
   state = {
-    eachPlaylistDetails: {},
+    ListDetails: {},
     apiStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
-    this.getPlaylistDetails()
+    this.getDetails()
   }
 
   getArtistName = eachArtist => [
@@ -29,56 +29,57 @@ class EachPlayListDetailView extends Component {
   ]
 
   getTrackDetails = eachTrack => ({
-    previewUrl: eachTrack.track.preview_url,
-    songName: eachTrack.track.name,
-    durationMs: eachTrack.track.duration_ms,
-    type: eachTrack.track.type,
-    id: eachTrack.track.id,
-    artists: eachTrack.track.artists.map(eachArtist =>
+    previewUrl: eachTrack.preview_url,
+    songName: eachTrack.name,
+    durationMs: eachTrack.duration_ms,
+    type: eachTrack.type,
+    id: eachTrack.id,
+    artists: eachTrack.artists.map(eachArtist =>
       this.getArtistName(eachArtist),
     ),
   })
 
   renderSuccessView = () => {
-    const {eachPlaylistDetails} = this.state
-    return <DisplayDetailedView eachSongDetail={eachPlaylistDetails} />
+    const {ListDetails} = this.state
+    return <DisplayDetailedView eachSongDetail={ListDetails} />
   }
 
   renderFailureView = () => <FailedView />
 
   renderLoadingView = () => <LoadingView />
 
-  getPlaylistDetails = async () => {
+  getDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const token = Cookies.get('pa_token')
     const {match} = this.props
     const {params} = match
     const {id} = params
-    const playListDetailedUrl = `https://api.spotify.com/v1/users/spotify/playlists/${id}`
+    const detailedUrl = `https://api.spotify.com/v1/albums/${id}`
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     }
-    const detailedPlaylistResponse = await fetch(playListDetailedUrl, options)
-    if (detailedPlaylistResponse.ok === true) {
-      const detailedPlayListData = await detailedPlaylistResponse.json()
-      console.log(detailedPlayListData)
-      const updatedPlayList = {
-        name: detailedPlayListData.name,
-        description: detailedPlayListData.description,
-        imageUrl: detailedPlayListData.images[0].url,
-        tracks: detailedPlayListData.tracks.items.map(eachTrack =>
+    const response = await fetch(detailedUrl, options)
+    console.log(response)
+    if (response.ok === true) {
+      const data = await response.json()
+      console.log(data)
+      const updatedList = {
+        name: data.name,
+        description: data.label,
+        imageUrl: data.images[0].url,
+        tracks: data.tracks.items.map(eachTrack =>
           this.getTrackDetails(eachTrack),
         ),
       }
       this.setState({
         apiStatus: apiStatusConstants.success,
-        eachPlaylistDetails: updatedPlayList,
+        ListDetails: updatedList,
       })
 
-      console.log(updatedPlayList)
+      console.log(updatedList)
     } else {
       this.setState({apiStatus: apiStatusConstants.failure})
     }

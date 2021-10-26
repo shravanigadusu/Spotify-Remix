@@ -6,6 +6,7 @@ dependencies:
   js-cookie: 3.0.0
   moment: 2.29.1
   react: 17.0.1
+  react-audio-player: 0.17.0_react-dom@17.0.1+react@17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.3.1_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
@@ -10248,6 +10249,17 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-0sF4ny9v/B7s6aoehwze9vJNWcmCemAUYBVasscVr92+UYiEqDXOxfKjXN685mDaMRNF3WdhHQs76oTODMocFA==
+  /react-audio-player/0.17.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    resolution:
+      integrity: sha512-aCZgusPxA9HK7rLZcTdhTbBH9l6do9vn3NorgoDZRxRxJlOy9uZWzPaKjd7QdcuP2vXpxGA/61JMnnOEY7NXeA==
   /react-dev-utils/11.0.4:
     dependencies:
       '@babel/code-frame': 7.10.4
@@ -12937,6 +12949,7 @@ specifiers:
   npm-run-all: 4.1.5
   prettier: 2.2.1
   react: 17.0.1
+  react-audio-player: 0.17.0
   react-dom: 17.0.1
   react-icons: 4.3.1
   react-router-dom: 5.2.0

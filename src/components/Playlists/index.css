@@ -1,0 +1,49 @@
+.playlist-bg-container {
+  background-color: #181818;
+  min-height: 100vh;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.playlist-heading {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  padding-left: 16px;
+  margin-bottom: 28px;
+}
+.line-one {
+  display: flex;
+  flex-direction: row;
+  padding-left: 16px;
+}
+.thumb-nail {
+  width: 40px;
+  height: 40px;
+}
+.thing-container {
+  display: flex;
+  flex-direction: row;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+}
+.para-style {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+}
+.count-style {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 0px;
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+}

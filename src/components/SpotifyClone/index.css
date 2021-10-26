@@ -83,6 +83,7 @@
 .home-bg-container {
   background-color: #181818;
   min-height: 100vh;
+  padding-top: 50px;
 }
 .genres-heading {
   font-family: Assistant;

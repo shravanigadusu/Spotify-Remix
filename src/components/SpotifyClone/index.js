@@ -5,12 +5,14 @@ import EditorPicksHome from '../EditorPicksHome'
 import './index.css'
 
 const SpotifyClone = () => (
-  <div className="home-bg-container">
+  <>
     <Header />
-    <EditorPicksHome />
-    <GenreHome />
-    <NewReleasesHome />
-  </div>
+    <div className="home-bg-container">
+      <EditorPicksHome />
+      <GenreHome />
+      <NewReleasesHome />
+    </div>
+  </>
 )
 
 export default SpotifyClone

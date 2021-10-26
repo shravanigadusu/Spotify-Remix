@@ -36,10 +36,12 @@ class Header extends Component {
                 onClick={this.menuOptionClicked}
               />
             </Link>
-            <MdQueueMusic
-              className="person-icon "
-              onClick={this.menuOptionClicked}
-            />
+            <Link to="/playlists">
+              <MdQueueMusic
+                className="person-icon "
+                onClick={this.menuOptionClicked}
+              />
+            </Link>
             <MdClose className="menu-icon" onClick={this.menuOptionClicked} />
           </>
         ) : (

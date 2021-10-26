@@ -1,11 +1,13 @@
 .header-bg-container {
   background-color: #040306;
-  height: 24%;
+  height: 9%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  width: 100%;
+  position: fixed;
 }
 .login-website-logo-desktop-image2 {
   width: 52px;

@@ -14,30 +14,94 @@ const apiStatusConstants = {
 }
 
 class YourMusic extends Component {
-  state = {yourMusicList: [], apiStatus: apiStatusConstants.initial}
+  state = {
+    yourMusicList: [],
+    apiStatus: apiStatusConstants.initial,
+    playedSongName: '',
+    playedUrl: '',
+    valPresent: false,
+    playedArtists: '',
+    typeSong: '',
+    songImage: '',
+  }
 
   componentDidMount() {
     this.getYourMusicData()
   }
 
+  onDisplayPlaySong = (nameS, playUrl, playArtist, songType, songPic) => {
+    console.log(nameS, playUrl)
+    this.setState({
+      playedSongName: nameS,
+      playedUrl: playUrl,
+      valPresent: true,
+      playedArtists: playArtist[0],
+      typeSong: songType,
+      songImage: songPic.url,
+    })
+
+    if (playUrl === null) {
+      alert('Your Browser Does Not Support This')
+    }
+  }
+
   renderSuccessView = () => {
-    const {yourMusicList} = this.state
+    // const {yourMusicList} = this.state
+    const {
+      yourMusicList,
+      playedSongName,
+      playedUrl,
+      valPresent,
+      playedArtists,
+      typeSong,
+      songImage,
+    } = this.state
+    console.log(playedUrl)
     console.log(yourMusicList)
     return (
-      <div className="yourMusic-bg-container">
+      <>
         <Header />
-        <div className="yourMusicList-container">
+        <div className="yourMusic-bg-container">
           <h1 className="yourMusic-heading">Your Music</h1>
           <ul className="yourMusic-ul-list">
             {yourMusicList.map(eachMusicItem => (
               <YourMusicCard
                 MusicDetail={eachMusicItem}
                 key={eachMusicItem.id}
+                onDisplayPlaySong={this.onDisplayPlaySong}
               />
             ))}
           </ul>
+
+          {valPresent && playedUrl !== null ? (
+            <div className="playing-songs">
+              <img
+                src={songImage}
+                alt="song-logo"
+                className="song-played-image"
+              />
+              <div className="sName-aName-styling">
+                <p className="playing-song-style">{playedSongName}</p>
+                <p className="playing-a-style">{playedArtists}</p>
+              </div>
+
+              <audio
+                controls
+                src={playedUrl}
+                type={typeSong}
+                className="audio-styling"
+              >
+                <track
+                  src={playedUrl}
+                  kind="captions"
+                  srcLang="en"
+                  label="english_captions"
+                />
+              </audio>
+            </div>
+          ) : null}
         </div>
-      </div>
+      </>
     )
   }
 
@@ -52,6 +116,7 @@ class YourMusic extends Component {
   convertDataToCamelCase = eachItem => [
     {
       name: eachItem.track.name,
+      type: eachItem.track.type,
       songUrl: eachItem.track.album.images[0],
       previewUrl: eachItem.track.preview_url,
       durationMs: eachItem.track.duration_ms,
@@ -75,7 +140,7 @@ class YourMusic extends Component {
     const responseYourMusic = await fetch(yourMusicUrl, options)
     const dataYourMusic = await responseYourMusic.json()
     console.log(dataYourMusic)
-    console.log(dataYourMusic.items[0].track)
+    //   console.log(dataYourMusic.items[0].track)
     if (responseYourMusic.ok === true) {
       const updatedData = dataYourMusic.items.map(eachItem =>
         this.convertDataToCamelCase(eachItem),

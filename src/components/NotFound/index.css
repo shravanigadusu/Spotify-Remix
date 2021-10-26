@@ -1,0 +1,12 @@
+.not-found-bg-container {
+  background-color: #181818;
+  min-height: 100vh;
+  padding-top: 10px;
+}
+.not-fount-heading {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 22px;
+  text-align: center;
+  margin-top: 250px;
+}

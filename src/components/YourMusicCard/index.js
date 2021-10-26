@@ -1,8 +1,8 @@
 import './index.css'
 
 const YourMusicCard = props => {
-  const {MusicDetail} = props
-  const {name, durationMs, songUrl} = MusicDetail[0]
+  const {MusicDetail, onDisplayPlaySong} = props
+  const {name, durationMs, songUrl, type, previewUrl} = MusicDetail[0]
   let namesOfArtists = []
 
   const getValue = eachItem => {
@@ -15,10 +15,16 @@ const YourMusicCard = props => {
   const timeInMin = durationMs / 60000
   const minIntegerPart = Math.trunc(timeInMin)
   const timeInSec = durationMs % 60000
-  const secTwoDecimalPart = Math.trunc(timeInSec / 100)
+  const secTwoDecimalPart =
+    timeInSec < 10000
+      ? Math.trunc(timeInSec / 100)
+      : Math.trunc(timeInSec / 1000)
 
+  const viewPlayedYM = () => {
+    onDisplayPlaySong(name, previewUrl, namesOfArtists, type, songUrl)
+  }
   return (
-    <li className="MusicCard-li-element">
+    <li className="MusicCard-li-element" onClick={viewPlayedYM}>
       <img src={songUrl.url} alt="songUrl" className="song-image-styling" />
       <div className="song-information">
         <h1 className="song-name">{name}</h1>
