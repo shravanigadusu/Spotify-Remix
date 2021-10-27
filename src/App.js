@@ -26,7 +26,7 @@ const App = () => (
         component={EachPlayListDetailView}
       />
       <ProtectedRoute
-        path="/categories/:id/playlists?country=getUserCountry"
+        path="/categories/:id/playlists"
         component={EachGenresDetailedView}
       />
       <ProtectedRoute

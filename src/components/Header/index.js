@@ -53,6 +53,7 @@ class Header extends Component {
                 alt="website logo"
               />
             </Link>
+            <p className="mobile-view">**Mobile View**</p>
             <button
               type="button"
               className="menu-button"

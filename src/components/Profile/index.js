@@ -40,7 +40,7 @@ class Profile extends Component {
               <p className="text-style">FOLLOWERS</p>
             </div>
             <div className="Followers-container">
-              <p className="green-styling">0</p>
+              <p className="green-styling">1</p>
               <p className="text-style">PLAYLISTS</p>
             </div>
           </div>

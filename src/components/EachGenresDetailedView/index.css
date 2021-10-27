@@ -1,7 +1,19 @@
-.bg-div-container {
-  background-color: aqua;
+.genre-detailed-bg-container {
+  background-color: #181818;
   min-height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
-.para {
-  color: black;
+.genres-and-mood-heading {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 21px;
+  padding-left: 22px;
+  font-weight: 500;
+}
+.genres-mood-ul-list {
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
 }
