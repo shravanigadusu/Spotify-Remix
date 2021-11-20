@@ -1,8 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {MdOutlineArrowBack} from 'react-icons/md'
 import LoadingView from '../LoadingView'
 import FailedView from '../FailedView'
 import Header from '../Header'
+import PageOfPlaylist from '../PageOfPlaylist'
 import './index.css'
 
 const apiStatusConstants = {
@@ -18,6 +20,7 @@ class Playlists extends Component {
     apiStatus: apiStatusConstants.initial,
     username: '',
     lenVal: '',
+    clickVal: false,
   }
 
   componentDidMount() {
@@ -76,14 +79,44 @@ class Playlists extends Component {
 
   renderLoadingView = () => <LoadingView />
 
+  getListOfPlaylists = () => {
+    console.log('clicked')
+    this.setState(prevState => ({clickVal: !prevState.clickVal}))
+    this.renderSuccessView()
+  }
+
+  changeButtonVal = () => {
+    this.setState(prevState => ({clickVal: !prevState.clickVal}))
+    this.renderSuccessView()
+  }
+
+  renderBackButton = () => (
+    <div className="SH-bg-container">
+      <button
+        type="button"
+        className="back-container button-stylee"
+        onClick={this.changeButtonVal}
+      >
+        <MdOutlineArrowBack className="back-arrow" />
+        <p className="back-text">Back</p>
+      </button>
+    </div>
+  )
+
   renderSuccessView = () => {
-    const {list1, lenVal} = this.state
+    const {clickVal, list1, lenVal} = this.state
+    const classStyleValue = clickVal ? 'things-container2' : 'thing-container'
+    const classStyle2 = clickVal ? 'displayList' : 'notDisplayList'
     return (
       <>
-        <Header />
+        {clickVal ? this.renderBackButton() : <Header />}
         <div className="playlist-bg-container">
           <h1 className="playlist-heading">Your Playlists</h1>
-          <div className="thing-container">
+          <button
+            type="button"
+            className={classStyleValue}
+            onClick={this.getListOfPlaylists}
+          >
             <div className="image-container">
               <div className="line-one">
                 <img
@@ -114,7 +147,12 @@ class Playlists extends Component {
               <p className="para-style">{list1[0].name}</p>
               <p className="count-style">{lenVal} Tracks</p>
             </div>
-          </div>
+          </button>
+          <ul className={classStyle2}>
+            {list1.map(eachItemDetails => (
+              <PageOfPlaylist eachDetailsOfItems={eachItemDetails} />
+            ))}
+          </ul>
         </div>
       </>
     )

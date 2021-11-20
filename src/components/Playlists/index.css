@@ -25,6 +25,14 @@
 .thing-container {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.things-container2 {
+  display: none;
 }
 .image-container {
   display: flex;
@@ -33,17 +41,31 @@
 .para-style {
   color: white;
   font-family: 'Roboto';
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
 }
 .count-style {
   font-family: 'Roboto';
   font-size: 14px;
   color: #64748b;
   margin-top: 0px;
+  align-self: flex-start;
 }
 .info-container {
   display: flex;
   flex-direction: column;
   padding-left: 12px;
+}
+.displayList {
+  padding-left: 0px;
+  margin-top: 0px;
+}
+.notDisplayList {
+  display: none;
+}
+.button-stylee {
+  background-color: transparent;
+  margin: 0px;
+  outline: none;
+  border: none;
 }

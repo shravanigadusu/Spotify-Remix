@@ -1,0 +1,37 @@
+.no-display-song {
+  display: none;
+}
+.display-song {
+  list-style-type: none;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 5px;
+}
+.image-container1 {
+  display: flex;
+  flex-direction: column;
+}
+.line-one1 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 16px;
+}
+.thumb-nail1 {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+.song-style-name {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 14px;
+  padding-left: 10px;
+  width: 170px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+  margin-bottom: 0px;
+}
